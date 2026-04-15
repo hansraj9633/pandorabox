@@ -86,8 +86,8 @@ export function Footer() {
                     <li key={link.href}>
                       <Link
                         href={link.href}
-                        target={link.external ? "_blank" : undefined}
-                        rel={link.external ? "noopener noreferrer" : undefined}
+                        target={"external" in link && link.external ? "_blank" : undefined}
+                        rel={"external" in link && link.external ? "noopener noreferrer" : undefined}
                         className={cn(
                           "inline-flex items-center gap-1 text-sm text-text-secondary",
                           "hover:text-text-primary transition-colors duration-150",
@@ -95,7 +95,7 @@ export function Footer() {
                         )}
                       >
                         {link.label}
-                        {link.external && (
+                        {"external" in link && link.external && (
                           <ArrowUpRight className="w-3 h-3 opacity-50" />
                         )}
                       </Link>
