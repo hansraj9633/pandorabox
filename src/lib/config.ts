@@ -1,3 +1,5 @@
+import { Linkedin } from "lucide-react";
+
 export const siteConfig = {
   name: "PandoraBox",
   tagline: "Apps, Websites & Digital Builds",
@@ -15,7 +17,7 @@ export const siteConfig = {
   ],
   social: {
     github: "https://github.com", // Update with your actual link
-    twitter: "https://twitter.com",
+    Linkedin: "https://linkedin.com",
   },
   keywords: [
     "developer portfolio",
@@ -31,7 +33,7 @@ export const siteConfig = {
    * Example: "919876543210" for +91 98765 43210 (India)
    * Update this to your actual WhatsApp number before going live.
    */
-  whatsappNumber: "919999999999",
+  whatsappNumber: "933482xxxx",
 } as const;
 
 export type SiteConfig = typeof siteConfig;

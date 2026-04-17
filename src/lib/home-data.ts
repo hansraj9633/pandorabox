@@ -57,7 +57,7 @@ export const featuredProjects: HomeFeaturedProject[] = [
   },
 ];
 
-/* ─── What I Offer ─────────────────────────────────────────────────────────── */
+/* ─── What We Offer ─────────────────────────────────────────────────────────── */
 
 export interface Offering {
   id: string;

@@ -11,22 +11,22 @@ import { FadeIn } from "@/components/motion/FadeIn";
 const previewCards = [
   {
     id: 1,
-    label: "SaaS Starter Kit",
-    category: "Web Application",
+    label: "Chronicle",
+    category: "Android App",
     indicator: "#6366f1",
     lines: [3, 5, 4],
   },
   {
     id: 2,
-    label: "Link Analytics Tool",
-    category: "Developer Tool",
+    label: "Smart Practice",
+    category: "Exam Preparation",
     indicator: "#8b5cf6",
     lines: [4, 3, 5],
   },
   {
     id: 3,
-    label: "Portfolio Template",
-    category: "Website Template",
+    label: "Global Ink",
+    category: "News Website Template",
     indicator: "#06b6d4",
     lines: [5, 4, 3],
   },
@@ -134,13 +134,13 @@ function HeroVisual() {
         className="absolute -bottom-4 -left-4 lg:-left-6"
       >
         <div
-          className="flex items-center gap-2 px-3 py-2 rounded-xl border border-border-bright bg-background-elevated"
-          style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.4)" }}
+          // className="flex items-center gap-2 px-3 py-2 rounded-xl border border-border-bright bg-background-elevated"
+          // style={{ boxShadow: "0 4px 16px rgba(0,0,0,0.4)" }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse-slow" />
-          <span className="text-xs font-medium text-text-secondary whitespace-nowrap">
+          {/* <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse-slow" /> */}
+          {/* <span className="text-xs font-medium text-text-secondary whitespace-nowrap">
             Available for custom work
-          </span>
+          </span> */}
         </div>
       </motion.div>
     </div>
@@ -171,7 +171,7 @@ export function HeroSection() {
                   style={{ boxShadow: "0 0 12px rgba(99,102,241,0.08)" }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-accent-soft animate-pulse-slow" />
-                  Independent Developer
+                  Platform for Independent Developers
                 </span>
               </div>
             </FadeIn>
@@ -179,7 +179,7 @@ export function HeroSection() {
             {/* Headline */}
             <FadeIn delay={0.08} duration={0.6}>
               <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] xl:text-6xl font-semibold tracking-tight leading-[1.1] mb-6">
-                <span className="heading-gradient">I Build Apps,</span>
+                <span className="heading-gradient">We Build Apps,</span>
                 <br />
                 <span className="heading-gradient">Websites & Digital</span>
                 <br />

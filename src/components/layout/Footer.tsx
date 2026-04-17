@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Github, Twitter, Box, ArrowUpRight } from "lucide-react";
+import { Github, Linkedin, Box, ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/config";
 import { Container } from "@/components/ui/Container";
@@ -15,8 +15,8 @@ const footerLinks = [
     group: "Connect",
     links: [
       { label: "GitHub", href: siteConfig.social.github, external: true },
-      { label: "Twitter / X", href: siteConfig.social.twitter, external: true },
-      { label: "Contact", href: "/contact" },
+      { label: "LinkedIn", href: "https://linkedin.com/in/your-linkedin-id", external: true },
+      // { label: "Contact", href: "/contact" },
     ],
   },
 ];
@@ -67,9 +67,9 @@ export function Footer() {
                 icon={<Github className="w-3.5 h-3.5" />}
               />
               <SocialIcon
-                href={siteConfig.social.twitter}
-                label="Twitter"
-                icon={<Twitter className="w-3.5 h-3.5" />}
+                href="https://linkedin.com/in/your-linkedin-id"
+                label="LinkedIn"
+                icon={<Linkedin className="w-3.5 h-3.5" />}
               />
             </div>
           </div>

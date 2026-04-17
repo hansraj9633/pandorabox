@@ -78,8 +78,8 @@ export function WhatIOfferSection() {
       <Container>
         <SectionHeading
           eyebrow="Services"
-          title="What I Offer"
-          highlight="I Offer"
+          title="What We Offer"
+          highlight="We Offer"
           description="Whether you need something ready-made or fully bespoke, here's how I can help."
           className="mb-12"
         />

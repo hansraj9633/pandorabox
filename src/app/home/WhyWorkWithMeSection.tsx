@@ -65,7 +65,7 @@ export function WhyWorkWithMeSection() {
     <section className="py-20 sm:py-28">
       <Container>
         <SectionHeading
-          eyebrow="Why Work With Me"
+          eyebrow="Why Work With Us"
           title="Built for the Real World"
           highlight="Real World"
           description="A few things that set the work apart from generic freelance output."

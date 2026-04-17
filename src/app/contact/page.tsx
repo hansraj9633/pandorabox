@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Mail, Github, Twitter } from "lucide-react";
+import { Mail, Github, Twitter, Linkedin } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/motion";
 import { siteConfig } from "@/lib/config";
+
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -15,9 +16,9 @@ const contactOptions = [
   {
     icon: Mail,
     label: "Email",
-    description: "Preferred for project inquiries and custom build requests.",
+    description: "Send mail to: thelittlespark.official@gmail.com",
     action: "Send an email",
-    href: "mailto:hello@pandorabox.dev", // Update with your actual email
+    href: "https://mail.google.com", // Update with your actual email
     external: true,
   },
   {
@@ -29,11 +30,11 @@ const contactOptions = [
     external: true,
   },
   {
-    icon: Twitter,
-    label: "Twitter / X",
-    description: "Follow for updates on new projects and releases.",
-    action: "Follow on X",
-    href: siteConfig.social.twitter,
+    icon: Linkedin,
+    label: "LinkedIn",
+    description: "Connect with me professionally and explore my work and updates.",
+    action: "Connect on LinkedIn",
+    href: "https://linkedin.com/in/your-linkedin-id",
     external: true,
   },
 ];
@@ -89,7 +90,7 @@ export default function ContactPage() {
         {/* Note */}
         <FadeIn delay={0.3}>
           <p className="text-center text-xs text-text-muted mt-10">
-            Response time is typically within 24–48 hours on business days.
+            Response time is typically within 24 to 48 hours on business days.
           </p>
         </FadeIn>
       </Container>

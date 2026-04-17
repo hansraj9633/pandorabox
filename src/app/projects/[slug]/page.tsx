@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowLeft,
   ExternalLink,
@@ -62,17 +63,17 @@ export async function generateMetadata({
 /* ─── Availability badge mapping ─────────────────────────────────────────── */
 
 const availabilityConfig: Record<string, { variant: BadgeVariant; dot: boolean }> = {
-  Available:     { variant: "green",   dot: true  },
-  Customizable:  { variant: "blue",    dot: false },
+  Available: { variant: "green", dot: true },
+  Customizable: { variant: "blue", dot: false },
   "Coming Soon": { variant: "default", dot: false },
 };
 
 /* ─── Category accent colours ─────────────────────────────────────────────── */
 
 const categoryAccent: Record<string, string> = {
-  App:      "#6366f1",
-  Website:  "#8b5cf6",
-  Tool:     "#06b6d4",
+  App: "#6366f1",
+  Website: "#8b5cf6",
+  Tool: "#06b6d4",
   Template: "#f59e0b",
 };
 
@@ -152,11 +153,7 @@ function ProjectHero({ project }: { project: Project }) {
                 </Button>
               )}
 
-              <Button
-                href={whatsappCustom}
-                variant="outline"
-                size="lg"
-              >
+              <Button href={whatsappCustom} variant="outline" size="lg">
                 Request Custom Version
               </Button>
             </div>
@@ -176,6 +173,24 @@ function ProjectHero({ project }: { project: Project }) {
 
 function ThumbnailPanel({ project }: { project: Project }) {
   const accent = categoryAccent[project.category] ?? "#6366f1";
+
+  if (project.coverImage) {
+    return (
+      <div
+        className="relative rounded-2xl border border-border-default overflow-hidden aspect-[16/10] bg-background-elevated"
+        style={{ boxShadow: "0 1px 0 rgba(255,255,255,0.04), 0 8px 40px rgba(0,0,0,0.5)" }}
+      >
+        <Image
+          src={project.coverImage}
+          alt={`${project.title} cover preview`}
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className="relative rounded-2xl border border-border-default overflow-hidden aspect-[16/10] bg-background-elevated"
@@ -238,24 +253,12 @@ function GallerySection({ project }: { project: Project }) {
               key={i}
               className="relative aspect-video rounded-xl overflow-hidden border border-border-default bg-background-elevated"
             >
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: `linear-gradient(135deg, #13131f 0%, #0f0f1a 100%)`,
-                }}
+              <Image
+                src={src}
+                alt={`${project.title} screenshot ${i + 1}`}
+                fill
+                className="object-cover"
               />
-              <div
-                className="absolute inset-0 flex items-center justify-center"
-                style={{
-                  background: `radial-gradient(circle, ${accent}15 0%, transparent 70%)`,
-                }}
-              />
-              <span
-                className="absolute inset-0 flex items-center justify-center text-2xl font-bold select-none"
-                style={{ color: accent, opacity: 0.15 }}
-              >
-                {i + 1}
-              </span>
             </div>
           ))}
         </div>
@@ -355,22 +358,26 @@ const whatYouGet = [
   {
     icon: Code2,
     title: "Full Source Code",
-    description: "Complete, well-structured codebase delivered as a zip archive or private repository invite.",
+    description:
+      "Complete, well-structured codebase delivered as a zip archive or private repository invite.",
   },
   {
     icon: FileText,
     title: "Setup Documentation",
-    description: "Step-by-step setup guide covering environment configuration, dependencies, and deployment.",
+    description:
+      "Step-by-step setup guide covering environment configuration, dependencies, and deployment.",
   },
   {
     icon: Wrench,
     title: "Customization Guide",
-    description: "Notes on which files and variables to change for branding, content, and feature adjustments.",
+    description:
+      "Notes on which files and variables to change for branding, content, and feature adjustments.",
   },
   {
     icon: HeadphonesIcon,
     title: "Post-Purchase Support",
-    description: "Questions after purchase are answered via WhatsApp. Setup issues resolved within 48 hours.",
+    description:
+      "Questions after purchase are answered via WhatsApp. Setup issues resolved within 48 hours.",
   },
 ];
 
@@ -430,7 +437,8 @@ function ContactCTASection({ project }: { project: Project }) {
             className="absolute inset-0 pointer-events-none"
             aria-hidden="true"
             style={{
-              background: "radial-gradient(ellipse 80% 60% at 50% 110%, rgba(99,102,241,0.12) 0%, transparent 70%)",
+              background:
+                "radial-gradient(ellipse 80% 60% at 50% 110%, rgba(99,102,241,0.12) 0%, transparent 70%)",
             }}
           />
           <div className="relative space-y-4">
