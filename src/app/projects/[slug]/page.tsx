@@ -125,24 +125,24 @@ function ProjectHero({ project }: { project: Project }) {
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.2}>
+          {/* <FadeIn delay={0.2}>
             <p className="text-2xl font-semibold text-text-primary mb-8">
               {project.priceText}
             </p>
-          </FadeIn>
+          </FadeIn> */}
 
           <FadeIn delay={0.25}>
             <div className="flex flex-wrap gap-3">
-              <Button
+              {/* <Button
                 href={whatsappBuy}
                 variant="primary"
                 size="lg"
                 icon={<MessageCircle className="w-4 h-4" />}
               >
                 Contact to Buy
-              </Button>
+              </Button> */}
 
-              {project.demoUrl && (
+              {/* {project.demoUrl && (
                 <Button
                   href={project.demoUrl}
                   variant="secondary"
@@ -151,11 +151,20 @@ function ProjectHero({ project }: { project: Project }) {
                 >
                   View Demo
                 </Button>
-              )}
+              )} */}
 
-              <Button href={whatsappCustom} variant="outline" size="lg">
+              {/* <Button href={whatsappCustom} variant="outline" size="lg">
                 Request Custom Version
+              </Button> */}
+
+              <Button
+                href="/downloads/chronicle.apk"
+                variant="secondary"
+                size="lg"
+                >
+                Download App
               </Button>
+
             </div>
           </FadeIn>
         </div>
@@ -177,7 +186,7 @@ function ThumbnailPanel({ project }: { project: Project }) {
   if (project.coverImage) {
     return (
       <div
-        className="relative rounded-2xl border border-border-default overflow-hidden aspect-[16/10] bg-background-elevated"
+        className="relative rounded-2xl border border-border-default overflow-hidden aspect-[4/4] bg-background-elevated"
         style={{ boxShadow: "0 1px 0 rgba(255,255,255,0.04), 0 8px 40px rgba(0,0,0,0.5)" }}
       >
         <Image
@@ -251,7 +260,7 @@ function GallerySection({ project }: { project: Project }) {
           {project.images.map((src, i) => (
             <div
               key={i}
-              className="relative aspect-video rounded-xl overflow-hidden border border-border-default bg-background-elevated"
+              className="relative aspect-[8/16] rounded-xl overflow-hidden border border-border-default bg-background-elevated"
             >
               <Image
                 src={src}
@@ -262,10 +271,10 @@ function GallerySection({ project }: { project: Project }) {
             </div>
           ))}
         </div>
-        <p className="text-2xs text-text-faint mt-3">
+        {/* <p className="text-2xs text-text-faint mt-3">
           Add real screenshots to{" "}
           <code className="text-accent-soft">/public{project.images[0]}</code>
-        </p>
+        </p> */}
       </section>
     </FadeIn>
   );
@@ -354,120 +363,120 @@ function TechStackSection({ project }: { project: Project }) {
 
 /* ── What You Get Section ────────────────────────────────────────────────── */
 
-const whatYouGet = [
-  {
-    icon: Code2,
-    title: "Full Source Code",
-    description:
-      "Complete, well-structured codebase delivered as a zip archive or private repository invite.",
-  },
-  {
-    icon: FileText,
-    title: "Setup Documentation",
-    description:
-      "Step-by-step setup guide covering environment configuration, dependencies, and deployment.",
-  },
-  {
-    icon: Wrench,
-    title: "Customization Guide",
-    description:
-      "Notes on which files and variables to change for branding, content, and feature adjustments.",
-  },
-  {
-    icon: HeadphonesIcon,
-    title: "Post-Purchase Support",
-    description:
-      "Questions after purchase are answered via WhatsApp. Setup issues resolved within 48 hours.",
-  },
-];
+// const whatYouGet = [
+//   {
+//     icon: Code2,
+//     title: "Full Source Code",
+//     description:
+//       "Complete, well-structured codebase delivered as a zip archive or private repository invite.",
+//   },
+//   {
+//     icon: FileText,
+//     title: "Setup Documentation",
+//     description:
+//       "Step-by-step setup guide covering environment configuration, dependencies, and deployment.",
+//   },
+//   {
+//     icon: Wrench,
+//     title: "Customization Guide",
+//     description:
+//       "Notes on which files and variables to change for branding, content, and feature adjustments.",
+//   },
+//   {
+//     icon: HeadphonesIcon,
+//     title: "Post-Purchase Support",
+//     description:
+//       "Questions after purchase are answered via WhatsApp. Setup issues resolved within 48 hours.",
+//   },
+// ];
 
-function WhatYouGetSection() {
-  return (
-    <FadeIn>
-      <section className="py-10 border-t border-border-default">
-        <h2 className="text-lg font-semibold text-text-primary mb-6">
-          What You Get
-        </h2>
-        <Stagger staggerDelay={0.08}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {whatYouGet.map((item) => {
-              const Icon = item.icon;
-              return (
-                <StaggerItem key={item.title}>
-                  <div className="flex items-start gap-4 p-5 rounded-2xl border border-border-default bg-background-card">
-                    <div className="shrink-0 flex items-center justify-center w-9 h-9 rounded-xl bg-accent/10 border border-accent/15 text-accent-soft">
-                      <Icon className="w-4 h-4" strokeWidth={1.75} />
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-sm font-semibold text-text-primary">
-                        {item.title}
-                      </p>
-                      <p className="text-xs text-text-secondary leading-relaxed">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </StaggerItem>
-              );
-            })}
-          </div>
-        </Stagger>
-      </section>
-    </FadeIn>
-  );
-}
+// function WhatYouGetSection() {
+//   return (
+//     <FadeIn>
+//       <section className="py-10 border-t border-border-default">
+//         <h2 className="text-lg font-semibold text-text-primary mb-6">
+//           What You Get
+//         </h2>
+//         <Stagger staggerDelay={0.08}>
+//           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+//             {whatYouGet.map((item) => {
+//               const Icon = item.icon;
+//               return (
+//                 <StaggerItem key={item.title}>
+//                   <div className="flex items-start gap-4 p-5 rounded-2xl border border-border-default bg-background-card">
+//                     <div className="shrink-0 flex items-center justify-center w-9 h-9 rounded-xl bg-accent/10 border border-accent/15 text-accent-soft">
+//                       <Icon className="w-4 h-4" strokeWidth={1.75} />
+//                     </div>
+//                     <div className="space-y-1">
+//                       <p className="text-sm font-semibold text-text-primary">
+//                         {item.title}
+//                       </p>
+//                       <p className="text-xs text-text-secondary leading-relaxed">
+//                         {item.description}
+//                       </p>
+//                     </div>
+//                   </div>
+//                 </StaggerItem>
+//               );
+//             })}
+//           </div>
+//         </Stagger>
+//       </section>
+//     </FadeIn>
+//   );
+// }
 
 /* ── Contact CTA Panel ───────────────────────────────────────────────────── */
 
-function ContactCTASection({ project }: { project: Project }) {
-  const whatsappBuy = getProjectWhatsAppLink(project.contactPrefillMessage);
-  const whatsappCustom = getCustomRequestWhatsAppLink(project.title);
+// function ContactCTASection({ project }: { project: Project }) {
+//   const whatsappBuy = getProjectWhatsAppLink(project.contactPrefillMessage);
+//   const whatsappCustom = getCustomRequestWhatsAppLink(project.title);
 
-  return (
-    <FadeIn>
-      <section className="py-10 border-t border-border-default">
-        <div
-          className="relative overflow-hidden rounded-2xl border border-accent/20 p-8 sm:p-10 text-center"
-          style={{
-            background: "linear-gradient(160deg, #13131f 0%, #0f0f1a 100%)",
-            boxShadow: "0 0 0 1px rgba(99,102,241,0.06), 0 0 40px rgba(99,102,241,0.06)",
-          }}
-        >
-          <div
-            className="absolute inset-0 pointer-events-none"
-            aria-hidden="true"
-            style={{
-              background:
-                "radial-gradient(ellipse 80% 60% at 50% 110%, rgba(99,102,241,0.12) 0%, transparent 70%)",
-            }}
-          />
-          <div className="relative space-y-4">
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight heading-gradient">
-              Interested in {project.title}?
-            </h2>
-            <p className="text-text-secondary text-sm sm:text-base leading-relaxed max-w-md mx-auto">
-              Reach out on WhatsApp to purchase, ask questions, or discuss a
-              custom version tailored to your needs.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-              <Button
-                href={whatsappBuy}
-                variant="primary"
-                size="lg"
-                icon={<MessageCircle className="w-4 h-4" />}
-              >
-                Contact to Buy
-              </Button>
-              <Button href={whatsappCustom} variant="secondary" size="lg">
-                Request Custom Version
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </FadeIn>
-  );
-}
+//   return (
+//     <FadeIn>
+//       <section className="py-10 border-t border-border-default">
+//         <div
+//           className="relative overflow-hidden rounded-2xl border border-accent/20 p-8 sm:p-10 text-center"
+//           style={{
+//             background: "linear-gradient(160deg, #13131f 0%, #0f0f1a 100%)",
+//             boxShadow: "0 0 0 1px rgba(99,102,241,0.06), 0 0 40px rgba(99,102,241,0.06)",
+//           }}
+//         >
+//           {/* <div
+//             className="absolute inset-0 pointer-events-none"
+//             aria-hidden="true"
+//             style={{
+//               background:
+//                 "radial-gradient(ellipse 80% 60% at 50% 110%, rgba(99,102,241,0.12) 0%, transparent 70%)",
+//             }}
+//           /> */}
+//           {/* <div className="relative space-y-4">
+//             <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight heading-gradient">
+//               Interested in {project.title}?
+//             </h2>
+//             <p className="text-text-secondary text-sm sm:text-base leading-relaxed max-w-md mx-auto">
+//               Reach out on WhatsApp to purchase, ask questions, or discuss a
+//               custom version tailored to your needs.
+//             </p>
+//             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+//               <Button
+//                 href={whatsappBuy}
+//                 variant="primary"
+//                 size="lg"
+//                 icon={<MessageCircle className="w-4 h-4" />}
+//               >
+//                 Contact to Buy
+//               </Button>
+//               <Button href={whatsappCustom} variant="secondary" size="lg">
+//                 Request Custom Version
+//               </Button>
+//             </div>
+//           </div> */}
+//         </div>
+//       </section>
+//     </FadeIn>
+//   );
+// }
 
 /* ── Related Projects ────────────────────────────────────────────────────── */
 
@@ -521,8 +530,8 @@ export default function ProjectDetailPage({
         <AboutSection project={project} />
         <FeaturesSection project={project} />
         <TechStackSection project={project} />
-        <WhatYouGetSection />
-        <ContactCTASection project={project} />
+        {/* <WhatYouGetSection /> */}
+        {/* <ContactCTASection project={project} /> */}
         <RelatedProjectsSection
           currentSlug={project.slug}
           category={project.category}

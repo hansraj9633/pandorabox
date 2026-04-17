@@ -117,9 +117,9 @@ export function Footer() {
             </span>
             . All rights reserved.
           </p>
-          <p className="flex items-center gap-1">
+          {/* <p className="flex items-center gap-1">
             Built with precision.
-          </p>
+          </p> */}
         </div>
       </Container>
     </footer>

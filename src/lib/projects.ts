@@ -46,11 +46,11 @@ export const projects: Project[] = [
 //     createdAt: "2024-06-01",
 //   },
 
-  //added Chronicle app
-{
+  // added Chronicle app
+  {
     id: "1",
     slug: "Chronicle",
-    title: "Chronicle ",
+    title: "Chronicle",
     category: "App",
     tagline: "Because every memory deserves a place!",
     shortDescription:
@@ -63,6 +63,7 @@ Chronicle is built for anyone who wants to stay connected with their thoughts, e
 
 Chronicle is more than just a journal — it’s your personal space to remember, reflect, and grow. Capture today, preserve forever.`,
     thumbnail: "/projects/chronicle/cover.png",
+    coverImage: "/projects/chronicle/cover.png",
     images: [
       "/projects/chronicle/preview-1.png",
       "/projects/chronicle/preview-2.png",
@@ -72,23 +73,23 @@ Chronicle is more than just a journal — it’s your personal space to remember
     status: "live",
     availability: "Available",
     tags: [
-      { label: "Next.js", color: "blue" },
-      { label: "TypeScript", color: "violet" },
-      { label: "SaaS", color: "green" },
+      { label: "Expo", color: "blue" },
+      { label: "React Native", color: "violet" },
+      { label: "Journal App", color: "green" },
     ],
     priceText: "₹0",
     contactPrefillMessage:
       "Hi, I'm interested in purchasing the Chronicle App. Could you share more details about what's included and how to get started?",
-    techStack: ["Expo", "React Native", "SQLite", "JavaScript", "Node js", "npm"],
+    techStack: ["Expo", "React Native", "SQLite", "JavaScript", "Node.js", "npm"],
     features: [
       "Create and save personal journal entries with ease",
       "Capture memories, thoughts, reflections, and milestones",
       "Numerous themes for creativity.",
-      "Fingerprint locked protected app.",
-      "No third party involvement, No data shared.",
+      "Fingerprint lock protected app.",
+      "No third-party involvement, no data shared.",
       "Different types of export facilities.",
-      "Alarm system to remind you writing every day.",
-      "Share to Google drive , Medium, Substack.",
+      "Alarm system to remind you to write every day.",
+      "Share to Google Drive, Medium, and Substack.",
     ],
     demoUrl: "https://www.google.com",
     createdAt: "2024-06-01",
