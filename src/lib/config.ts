@@ -2,7 +2,7 @@ import { Linkedin } from "lucide-react";
 
 export const siteConfig = {
   name: "PandoraBox",
-  tagline: "Apps, Websites & Digital Builds",
+  tagline: "Apps, Websites & Tools",
   description:
     "A curated showcase of apps, websites, tools, and digital projects built by an independent developer. Browse work, explore builds, and reach out for custom versions.",
   url: "https://pandorabox.dev", // Update with your actual domain
