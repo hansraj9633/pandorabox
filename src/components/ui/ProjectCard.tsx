@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "./Badge";
 import type { Project, BadgeVariant } from "@/types";
@@ -10,30 +11,39 @@ const availabilityConfig: Record<
   string,
   { variant: BadgeVariant; dot: boolean }
 > = {
-  Available:    { variant: "green",   dot: true  },
-  Customizable: { variant: "blue",    dot: false },
-  "Coming Soon":{ variant: "default", dot: false },
+  Available: { variant: "green", dot: true },
+  Customizable: { variant: "blue", dot: false },
+  "Coming Soon": { variant: "default", dot: false },
 };
 
 /* ─── Category accent colours ────────────────────────────────────────────── */
 
 const categoryAccent: Record<string, string> = {
-  App:      "#6366f1",
-  Website:  "#8b5cf6",
-  Tool:     "#06b6d4",
+  App: "#6366f1",
+  Website: "#8b5cf6",
+  Tool: "#06b6d4",
   Template: "#f59e0b",
 };
 
 /* ─── Thumbnail / placeholder ────────────────────────────────────────────── */
 
-function Thumbnail({ src, title, category }: { src: string; title: string; category: string }) {
+function Thumbnail({
+  src,
+  title,
+  category,
+}: {
+  src: string;
+  title: string;
+  category: string;
+}) {
   const accent = categoryAccent[category] ?? "#6366f1";
+
   return (
     <div
       className="relative w-full aspect-[16/9] overflow-hidden bg-background-elevated flex-shrink-0"
       aria-hidden="true"
     >
-      {/* Elegant placeholder — always shown; real image would overlay it */}
+      {/* Fallback placeholder background */}
       <div
         className="absolute inset-0 flex items-center justify-center"
         style={{
@@ -66,6 +76,16 @@ function Thumbnail({ src, title, category }: { src: string; title: string; categ
         </span>
       </div>
 
+      {/* Real image overlay */}
+      {src && (
+        <Image
+          src={src}
+          alt={`${title} cover image`}
+          fill
+          className="object-cover"
+        />
+      )}
+
       {/* Hover overlay */}
       <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </div>
@@ -81,9 +101,14 @@ interface ProjectCardProps {
   compact?: boolean;
 }
 
-export function ProjectCard({ project, className, compact = false }: ProjectCardProps) {
+export function ProjectCard({
+  project,
+  className,
+  compact = false,
+}: ProjectCardProps) {
   const accent = categoryAccent[project.category] ?? "#6366f1";
-  const avail = availabilityConfig[project.availability] ?? availabilityConfig["Available"];
+  const avail =
+    availabilityConfig[project.availability] ?? availabilityConfig["Available"];
 
   return (
     <Link
@@ -96,7 +121,9 @@ export function ProjectCard({ project, className, compact = false }: ProjectCard
         "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background",
         className
       )}
-      style={{ boxShadow: "0 1px 0 rgba(255,255,255,0.03), 0 4px 24px rgba(0,0,0,0.35)" }}
+      style={{
+        boxShadow: "0 1px 0 rgba(255,255,255,0.03), 0 4px 24px rgba(0,0,0,0.35)",
+      }}
     >
       {/* Top accent stripe */}
       <div
@@ -110,7 +137,8 @@ export function ProjectCard({ project, className, compact = false }: ProjectCard
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl z-10"
         style={{
-          background: "linear-gradient(135deg, rgba(255,255,255,0.022) 0%, transparent 55%)",
+          background:
+            "linear-gradient(135deg, rgba(255,255,255,0.022) 0%, transparent 55%)",
         }}
         aria-hidden="true"
       />
@@ -159,9 +187,9 @@ export function ProjectCard({ project, className, compact = false }: ProjectCard
 
         {/* Bottom row: price + CTA */}
         <div className="flex items-center justify-between pt-4 border-t border-border-subtle">
-          <span className="text-sm font-semibold text-text-primary">
+          {/* <span className="text-sm font-semibold text-text-primary">
             {project.priceText}
-          </span>
+          </span> */}
           <span
             className="inline-flex items-center gap-1.5 text-xs font-medium text-accent-soft
                        group-hover:gap-2.5 transition-all duration-200"
